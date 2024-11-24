@@ -109,18 +109,20 @@ class MultiLabelMixin:
             label = []
         filtered_labels = []
         for l in label:
-            if l in self.classes_ and l:
-                if l not in filtered_labels:
+            if l not in filtered_labels:
                     filtered_labels.append(l)
-            elif la := l.replace("'", "").replace('"', "") in self.classes_:
-                if la not in filtered_labels:
-                    filtered_labels.append(la)
-            else:
-                default_label = self._get_default_label()
-                if not (
-                    self.default_label == "Random" and default_label in filtered_labels
-                ):
-                    filtered_labels.append(default_label)
+            # if l in self.classes_ and l:
+            #     if l not in filtered_labels:
+            #         filtered_labels.append(l)
+            # elif la := l.replace("'", "").replace('"', "") in self.classes_:
+            #     if la not in filtered_labels:
+            #         filtered_labels.append(la)
+            # else:
+            #     default_label = self._get_default_label()
+            #     if not (
+            #         self.default_label == "Random" and default_label in filtered_labels
+            #     ):
+            #         filtered_labels.append(default_label)
         filtered_labels.extend([""] * self.max_labels)
         return filtered_labels[: self.max_labels]
 
