@@ -89,6 +89,7 @@ ZERO_SHOT_MLCLF_PROMPT_TEMPLATE = """
 You will be provided with the following information:
 1. An arbitrary text sample. The sample is delimited with triple backticks.
 2. List of categories the text sample can be assigned to. The list is delimited with square brackets. The categories in the list are enclosed in the single quotes and comma separated. The text sample belongs to at least one category but cannot exceed {max_cats}.
+3. Range value of sentiment score is in decimal from -1.00 to 1.00
 
 Perform the following tasks:
 1. Identify to which categories the provided text belongs to with the highest probability.
